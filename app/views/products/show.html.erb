@@ -1,6 +1,17 @@
 <h1><%= @product.name %></h1>
 
-<table class = "table table-striped">
+<div class="row">
+    <div class="col-md-6">
+      <div class="thumbnail">
+        <p><%= @product.name %></p>
+        <p><%= @product.price %></p>
+        <p><img src= <%= @product.image %> class="img-responsive" alt= <%= @product.name %> width= 500px height= 500px></p>
+        <p><%= @product.description %></p>
+      </div>
+    </div>
+</div>
+
+<!-- <table class = "table table-bordered">
   <th>Name</th>
   <th>Price</th>
   <th>Image</th>
@@ -13,7 +24,7 @@
     <td><%= @product.description %></td>
   </tr>
 
-</table>
+</table> -->
 <div><%= link_to "Edit this product", "/products/#{@product.id}/edit" %></div>
 <div><%= link_to "Delete this product", "/products/#{@product.id}", method: :delete %></div>
 <div><%= link_to "Back to all products", "/products" %></div>

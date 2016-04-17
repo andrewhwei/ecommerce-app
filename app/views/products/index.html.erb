@@ -1,6 +1,21 @@
 <h1>Products</h1>
 
-<table class="table table-striped">
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="col-md-3">
+      <div class="thumbnail">
+        <a href="/products/<%= product.id %>">
+          <p><%= product.name %></p>
+          <p><%= product.price %></p>
+          <p><img src= <%= product.image %> class="img-responsive" alt= <%= product.name %> width= 100px height= 100px></p>
+          <p><%= product.description %></p>
+        </a>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<!-- <table class="table table-bordered">
   <th>Name</th>
   <th>Price</th>
   <th>Image</th>
@@ -15,6 +30,4 @@
     </tr>
   <% end %>
 
-</table>
-
-<a href="/products/new">Add a new product</a>
+</table> -->
