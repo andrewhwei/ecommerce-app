@@ -9,8 +9,10 @@
   <tr>
     <td><%= @product.name %></td>
     <td><%= @product.price %></td>
-    <td><img src= <%= @product.image %> class="img-responsive" alt= <%= @product.name %> width= 50px height= 50px></td>
+    <td><img src= <%= @product.image %> class="img-responsive" alt= <%= @product.name %> width= 60px height= 60px></td>
     <td><%= @product.description %></td>
   </tr>
 
 </table>
+<div><%= link_to "Edit this product", "/products/#{@product.id}/edit" %></div>
+<div><%= link_to "Back to all products", "/products" %></div>
