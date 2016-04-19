@@ -1,7 +1,9 @@
 class Product < ActiveRecord::Base
 
+  DISCOUNT_THRESHOLD = 2
+
   def sale_message
-    if price < 2
+    if price < DISCOUNT_THRESHOLD
       return "Discount"
     else
       return "On-sale"
