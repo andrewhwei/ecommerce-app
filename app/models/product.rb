@@ -2,9 +2,9 @@ class Product < ActiveRecord::Base
 
   def sale_message
     if price < 2
-      return "Discount item!"
+      return "Discount"
     else
-      return "On sale!"
+      return "On-sale"
     end
   end
 
