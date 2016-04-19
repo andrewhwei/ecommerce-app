@@ -2,3 +2,11 @@ body {
   background: url("restaurant.png");
   font-family: 'Source Sans Pro', sans-serif;
 }
+
+.discount {
+  color:red;
+}
+
+.on_sale {
+  color:green;
+}

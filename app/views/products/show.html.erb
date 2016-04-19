@@ -4,7 +4,10 @@
     <div class="col-md-6">
       <div class="thumbnail">
         <p><%= @product.name %></p>
-        <p><%= @product.price %></p>
+        <p>Price: $<%= @product.price %></p>
+        <p>Tax: $<%= @product.tax %></p>
+        <p>After tax: $<%= @product.total %></p>
+        <p><%= @product.sale_message %></p>
         <p><img src= <%= @product.image %> class="img-responsive" alt= <%= @product.name %> width= 500px height= 500px></p>
         <p><%= @product.description %></p>
       </div>
