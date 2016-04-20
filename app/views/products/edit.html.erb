@@ -7,6 +7,10 @@
     <%= text_field_tag :name, @product.name %>
   </div>
   <div>
+    <%= label_tag :in_stock %>
+    <%= text_field_tag :in_stock, @product.in_stock %>
+  </div>
+  <div>
     <%= label_tag :price %>
     <%= text_field_tag :price, @product.price %>
   </div>

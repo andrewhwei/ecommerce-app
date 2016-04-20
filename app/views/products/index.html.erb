@@ -6,6 +6,7 @@
       <div class="thumbnail">
         <a href="/products/<%= product.id %>">
           <p><%= product.name %></p>
+          <p><%= product.check_status %></p>
           <p class="<%= product.sale_message %>">$<%= product.price %></p>
           <p><img src= <%= product.image %> class="img-responsive" alt= <%= product.name %> width= 100px height= 100px></p>
           <p><%= product.description %></p>

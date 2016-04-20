@@ -4,18 +4,25 @@ class Product < ActiveRecord::Base
 
   def sale_message
     if price < DISCOUNT_THRESHOLD
-      return "Discount"
+      return "<Discount></Discount>"
     else
       return "On-sale"
     end
   end
 
   def tax
-    tax = (price * 0.09).round(2)
+    (price * 0.09).round(2)
   end
 
   def total
-    total = price + tax
+    price + tax
   end
 
+  def check_status
+    if in_stock
+      return "In stock!"
+    else
+      return "Out of stock"
+    end
+  end
 end

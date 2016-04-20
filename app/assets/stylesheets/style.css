@@ -10,3 +10,13 @@ body {
 .On-sale {
   color:green;
 }
+
+.thumbnail {
+  height:18em;
+  width:15em;
+}
+
+.thumbnail-show{
+  height:48em;
+  width:30em;
+}
