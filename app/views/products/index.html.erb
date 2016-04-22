@@ -1,5 +1,13 @@
 <h1>Products</h1>
 
+<div><p>Sort by:</p></div>
+<div><a href="/products?sort_by=price&sort_order=asc">price: lowest to highest</a></div>
+<div><a href="/products?sort_by=price&sort_order=desc">price: highest to lowest</a></div>
+<%= form_tag "/search", method: :post do %>
+  <%= text_field_tag :search%>
+  <%= submit_tag "Search" %>
+<% end %>
+
 <div class="row">
   <% @products.each do |product| %>
     <div class="col-md-3">

@@ -1,10 +1,10 @@
 class Product < ActiveRecord::Base
 
-  DISCOUNT_THRESHOLD = 2
+  DISCOUNT_THRESHOLD = 5
 
   def sale_message
     if price < DISCOUNT_THRESHOLD
-      return "<Discount></Discount>"
+      return "Discount"
     else
       return "On-sale"
     end
@@ -25,4 +25,9 @@ class Product < ActiveRecord::Base
       return "Out of stock"
     end
   end
+
+  def self.get_discount_threshold
+    DISCOUNT_THRESHOLD
+  end
+
 end
