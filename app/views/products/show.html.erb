@@ -11,6 +11,7 @@
         <p><%= @product.sale_message %></p>
         <p><img src= <%= @product.image %> class="img-responsive" alt= <%= @product.name %> width= 500px height= 500px></p>
         <p><%= @product.description %></p>
+        <p>Supplier: <%= Supplier.find_by(id: "#{@product.supplier_id}").name %></p>
       </div>
     </div>
 </div>
