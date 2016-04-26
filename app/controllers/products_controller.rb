@@ -15,8 +15,10 @@ class ProductsController < ApplicationController
   def show
     if params[:id] == "random"
       @product = Product.order("RANDOM()").first
+      @images = @product.images
     else
       @product = Product.find_by(id: params[:id])
+      @images = @product.images
     end
   end
 

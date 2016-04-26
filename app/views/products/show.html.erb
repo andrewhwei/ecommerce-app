@@ -9,27 +9,15 @@
         <p>Tax: $<%= @product.tax %></p>
         <p>After tax: $<%= @product.total %></p>
         <p><%= @product.sale_message %></p>
-        <p><img src= <%= @product.image %> class="img-responsive" alt= <%= @product.name %> width= 500px height= 500px></p>
+        <% @images.each do |image| %>
+          <p><img src= <%= image.link %> class="img-responsive" width= 300px height= 300px></p>
+        <% end %>
         <p><%= @product.description %></p>
-        <p>Supplier: <%= Supplier.find_by(id: "#{@product.supplier_id}").name %></p>
+        <p>Supplier: <%= @product.supplier.name %></p>
       </div>
     </div>
 </div>
 
-<!-- <table class = "table table-bordered">
-  <th>Name</th>
-  <th>Price</th>
-  <th>Image</th>
-  <th>Description</th>
-
-  <tr>
-    <td><%= @product.name %></td>
-    <td><%= @product.price %></td>
-    <td><img src= <%= @product.image %> class="img-responsive" alt= <%= @product.name %> width= 300px height= 300px></td>
-    <td><%= @product.description %></td>
-  </tr>
-
-</table> -->
 <div><%= link_to "Edit this product", "/products/#{@product.id}/edit" %></div>
 <div><%= link_to "Delete this product", "/products/#{@product.id}", method: :delete %></div>
 <div><%= link_to "Back to all products", "/products" %></div>

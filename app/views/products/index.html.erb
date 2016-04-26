@@ -16,27 +16,10 @@
           <p><%= product.name %></p>
           <p><%= product.check_status %></p>
           <p class="<%= product.sale_message %>">$<%= product.price %></p>
-          <p><img src= <%= product.image %> class="img-responsive" alt= <%= product.name %> width= 100px height= 100px></p>
+          <p><img src= <%= product.images.first.link %> class="img-responsive" width= 100px height= 100px></p>
           <p><%= product.description %></p>
         </a>
       </div>
     </div>
   <% end %>
 </div>
-
-<!-- <table class="table table-bordered">
-  <th>Name</th>
-  <th>Price</th>
-  <th>Image</th>
-  <th>Description</th>
-  
-  <% @products.each do |product| %>
-    <tr>
-      <td><a href="/products/<%= product.id %>"><%= product.name %></a></td>
-      <td><%= product.price %></td>
-      <td><img src= <%= product.image %> class="img-responsive" alt= <%= product.name %> width= 60px height= 60px></td>
-      <td><%= product.description %></td>
-    </tr>
-  <% end %>
-
-</table> -->
