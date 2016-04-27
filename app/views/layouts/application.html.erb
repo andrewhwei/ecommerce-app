@@ -33,6 +33,9 @@
         <li class="active"><a href="/products?sort_by=discount">Show discount items</a></li>
         <li class="active"><a href="/products/random">Show a random product</a></li>
         <li class="active"><a href="/suppliers">See our suppliers</a></li>
+        <li class="active"><%= link_to "Sign up", "/users/sign_up" %></li>
+        <li class="active"><%= link_to "Sign in", "/users/sign_in" %></li>
+        <li class="active"><%= link_to "Sign out", "/users/sign_out", method: :delete %></li>
       </ul>  
 
     </div><!-- /.navbar-collapse -->

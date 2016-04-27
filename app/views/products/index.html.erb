@@ -16,7 +16,9 @@
           <p><%= product.name %></p>
           <p><%= product.check_status %></p>
           <p class="<%= product.sale_message %>">$<%= product.price %></p>
-          <p><img src="<%= product.images.first.link %>" class="img-responsive" width= 100px height= 100px></p>
+          <% if product.images.first %>
+            <p><img src="<%= product.images.first.link %>" class="img-responsive" width= 100px height= 100px></p>
+          <% end %>
           <p><%= product.description %></p>
         </a>
       </div>
