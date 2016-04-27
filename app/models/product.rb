@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   belongs_to :supplier
+  belongs_to :order
   has_many :images
 
   DISCOUNT_THRESHOLD = 5
