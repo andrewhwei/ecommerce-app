@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   post '/search', to: 'products#search'
 
   get '/suppliers', to: 'suppliers#index'
+
+  post '/orders', to: 'orders#create'
+  get '/orders/:id', to: 'orders#show'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

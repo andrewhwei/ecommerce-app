@@ -1,0 +1,11 @@
+<h1>Order #<%= @order.id %></h1>
+
+<p>Quantity: <%= @order.quantity %></p>
+<p>Subtotal: <%= @order.subtotal %></p>
+<p>Tax: <%= @order.tax %></p>
+<p>Total: <%= @order.total %></p>
+
+<p>Email address: <%= @order.user.email %></p>
+<p>Product: <%= @order.product.name %></p>
+<p>Purchased at: <%= @order.created_at %></p>
+<p><img src= "<%= @order.product.images.first.link %>" class="img-responsive" width= 300px height= 300px></p>
