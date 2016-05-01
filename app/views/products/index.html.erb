@@ -3,6 +3,10 @@
 <div><p>Sort by:</p></div>
 <div><a href="/products?sort_by=price&sort_order=asc">price: lowest to highest</a></div>
 <div><a href="/products?sort_by=price&sort_order=desc">price: highest to lowest</a></div>
+<% @categories.each do |category| %>
+  <div><a href="/products?category=<%= "#{category.name}" %>"><%= "#{category.name}" %></a></div>
+<% end %>
+
 <%= form_tag "/search", method: :post do %>
   <%= text_field_tag :search%>
   <%= submit_tag "Search" %>

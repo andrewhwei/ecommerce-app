@@ -1,12 +1,16 @@
 class ProductsController < ApplicationController
 
   def index
+    @categories = Category.all
     sort_by = params[:sort_by]
+    category = params[:category]
 
     if sort_by == "price"
       @products = Product.order(sort_by => params[:sort_order])
     elsif sort_by == "discount"
       @products = Product.where("price < ?", Product.get_discount_threshold)
+    elsif category
+      @products = Category.find_by(name: params[:category]).products
     else
       @products = Product.all
     end
