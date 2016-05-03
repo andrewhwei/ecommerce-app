@@ -1,8 +1,8 @@
 <h1>Order #<%= @order.id %></h1>
 
-<p>Subtotal: <%= @order.subtotal %></p>
-<p>Tax: <%= @order.tax %></p>
-<p>Total: <%= @order.total %></p>
+<p>Subtotal: $<%= @order.subtotal %></p>
+<p>Tax: $<%= @order.tax %></p>
+<p>Total: $<%= @order.total %></p>
 
 <p>Email address: <%= @order.user.email %></p>
 <% @products.each do |product| %>

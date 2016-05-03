@@ -1,12 +1,24 @@
 <h1>Checkout:</h1>
 
+<table class="table table-bordered">
+  <th>Product name</th>
+  <th>Price per unit</th>
+  <th>Quantity</th>
+  <th>Price of units</th>
 
-<% @carted_products.each do |carted_product| %>
-  <p><%= "Product name: #{carted_product.product.name}; Quantity: #{carted_product.quantity}" %></p>
-<% end %>
+  <% @carted_products.each do |carted_product| %>
+    <tr>
+      <td><%= "#{carted_product.product.name}" %></td>
+      <td><%= "$#{carted_product.product.price}" %></td>
+      <td><%= "#{carted_product.quantity}" %></td>
+      <td><%= "$#{carted_product.product.price * carted_product.quantity}" %></td>
+      <td><%= link_to "Remove from cart", "/carted_products/#{carted_product.id}", method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
 
 
-<%= form_tag "/carted_products/#{@order.id}}", method: :patch do %>
+<%= form_tag "/orders/#{@order.id}}", method: :patch do %>
 
   <%= submit_tag "Buy now!" %>
 
