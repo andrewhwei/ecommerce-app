@@ -22,14 +22,17 @@
 <div><%= link_to "Delete this product", "/products/#{@product.id}", method: :delete %></div>
 <div><%= link_to "Back to all products", "/products" %></div>
 
-
-<%= form_tag '/orders', method: :post do %>
-    <div>
-        <%= label_tag :quantity %>
-        <%= text_field_tag :quantity %>
-    </div>
-    <div>
-        <%= hidden_field_tag :product_id, @product.id %>
-    </div>
-    <%= submit_tag "Buy now!" %>
+<% if current_user %>
+    <%= form_tag '/carted_products', method: :post do %>
+        <div>
+            <%= label_tag :quantity %>
+            <%= text_field_tag :quantity %>
+        </div>
+        <div>
+            <%= hidden_field_tag :product_id, @product.id %>
+        </div>
+        <%= submit_tag "Add to cart" %>
+    <% end %>
+<% elsif %>
+    <p>If you want to purchase an item, please log in!</p>
 <% end %>

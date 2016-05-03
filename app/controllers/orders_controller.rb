@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = current_user.orders.find_by(id: params[:id]) # Only current user can see their own orders
-    # @order = Order.find_by(id: params[:id])
+    @products = @order.products
   end
 
 end

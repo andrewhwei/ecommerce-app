@@ -33,6 +33,9 @@
         <li class="active"><a href="/products?sort_by=discount">Show discount items</a></li>
         <li class="active"><a href="/products/random">Show a random product</a></li>
         <li class="active"><a href="/suppliers">See our suppliers</a></li>
+        <% if current_user %>
+          <li class="active"><%= link_to "See your cart", "/carted_products" %></li>
+        <% end %>
       </ul>  
 
       <ul class="nav navbar-nav navbar-right">

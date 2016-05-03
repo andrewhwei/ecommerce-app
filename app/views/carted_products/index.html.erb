@@ -1,0 +1,13 @@
+<h1>Checkout:</h1>
+
+
+<% @carted_products.each do |carted_product| %>
+  <p><%= "Product name: #{carted_product.product.name}; Quantity: #{carted_product.quantity}" %></p>
+<% end %>
+
+
+<%= form_tag "/carted_products/#{@order.id}}", method: :patch do %>
+
+  <%= submit_tag "Buy now!" %>
+
+<% end %>
