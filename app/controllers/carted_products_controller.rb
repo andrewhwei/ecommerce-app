@@ -13,21 +13,26 @@ class CartedProductsController < ApplicationController
   end
 
   def create
-    product = Product.find_by(id: params[:product_id])
-    
-    current_order = Order.find_by(user_id: current_user.id, completed: false)
 
-    if current_order
+     # order = current_user.orders.find_by(completed: false) || Order.create(completed:false, user_id: current_user.id) # Instructor's code; crazy condensed!!! 
+
+    if !params[:quantity].empty?
+      product = Product.find_by(id: params[:product_id])
       
+      current_order = Order.find_by(user_id: current_user.id, completed: false)
+
+      if !current_order
+        current_order = Order.new(user_id: current_user.id)
+        current_order.save
+      end
+
+      new_carted_product = CartedProduct.new(product_id: product.id, order_id: current_order.id, quantity: params[:quantity])
+      new_carted_product.save
+
+      redirect_to "/carted_products"
     else
-      current_order = Order.new(user_id: current_user.id)
-      current_order.save
+      redirect_to "/products/#{params[:product_id]}"
     end
-
-    new_carted_product = CartedProduct.new(product_id: product.id, order_id: current_order.id, quantity: params[:quantity])
-    new_carted_product.save
-
-    redirect_to "/carted_products"
   end
 
   def destroy
