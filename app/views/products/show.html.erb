@@ -12,8 +12,11 @@
 <p><%= @product.description %></p>
 <p>Supplier: <%= @product.supplier.name %></p>
 
-<div><%= link_to "Edit this product", "/products/#{@product.id}/edit" %></div>
-<div><%= link_to "Delete this product", "/products/#{@product.id}", method: :delete %></div>
+<% if current_user && current_user.admin %>
+    <div><%= link_to "Edit this product", "/products/#{@product.id}/edit" %></div>
+    <div><%= link_to "Delete this product", "/products/#{@product.id}", method: :delete %></div>
+<% end %>
+
 <div><%= link_to "Back to all products", "/products" %></div>
 
 <% if current_user %>
@@ -27,6 +30,6 @@
         </div>
         <%= submit_tag "Add to cart" %>
     <% end %>
-<% elsif %>
+<% else %>
     <p>If you want to purchase an item, please log in!</p>
 <% end %>
