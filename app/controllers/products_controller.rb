@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-      @product = Product.new(name: params[:name], price: params[:price], in_stock: params[:in_stock], description: params[:description], supplier_id: params[:supplier][:supplier_id])
+      @product = Product.new(name: params[:name], price: params[:price], in_stock: params[:in_stock], description: params[:description], supplier_id: params[:supplier][:supplier_id])  
     if @product.save
       @image = Image.new(link: params[:link], product_id: @product.id)
       @image.save

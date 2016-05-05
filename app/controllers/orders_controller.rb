@@ -31,6 +31,7 @@ class OrdersController < ApplicationController
     @order.tax = ((@order.subtotal * 0.09).round(2))
     @order.total = (@order.subtotal + @order.tax)
     @order.save
+    session[:cart_count] = nil
 
     redirect_to "/orders/#{@order.id}"
   end
