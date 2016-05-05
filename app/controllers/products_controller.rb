@@ -28,16 +28,20 @@ class ProductsController < ApplicationController
   end
 
   def new
-
+    @product = Product.new
+    @image = Image.new
   end
 
   def create
-    new_product = Product.new(name: params[:name], price: params[:price], in_stock: params[:in_stock], description: params[:description], supplier_id: params[:supplier][:supplier_id])
-    new_product.save
-    new_image = Image.new(link: params[:link], product_id: new_product.id)
-    new_image.save
-    flash[:success] = "Product added!"
-    redirect_to "/products/#{new_product.id}"
+      @product = Product.new(name: params[:name], price: params[:price], in_stock: params[:in_stock], description: params[:description], supplier_id: params[:supplier][:supplier_id])
+    if @product.save
+      @image = Image.new(link: params[:link], product_id: @product.id)
+      @image.save
+      flash[:success] = "Product added!"
+      redirect_to "/products/#{@product.id}"
+    else
+      render :new
+    end
   end
 
   def edit
