@@ -6,6 +6,11 @@ class Product < ActiveRecord::Base
   has_many :carted_products
   has_many :orders, through: :carted_products
 
+  validates :name, :description, :price, :in_stock, :supplier_id, presence: true
+  validates :supplier_id, numericality: {only_integer: true}
+  validates_numericality_of :price
+  validates :name, uniqueness: true
+
   DISCOUNT_THRESHOLD = 5
 
   def sale_message
