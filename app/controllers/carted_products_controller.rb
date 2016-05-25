@@ -7,7 +7,7 @@ class CartedProductsController < ApplicationController
     
     if @order
       @carted_products = CartedProduct.where("order_id = ?", @order.id)
-    else
+    else 
       redirect_to "/products"
     end
     
